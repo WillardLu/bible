@@ -16,6 +16,7 @@ anchorcolor=Navy
 \usepackage{tcolorbox}% 支持更好的文本框
 \usepackage[english]{babel}% 载入美式英语断字模板
 \usepackage{ulem}% 用于支持在字体上做下划线、波浪线等记号
+\usepackage{lipsum}
 
 % 设置为A4纸，边距适中模式（参考永中office）
 \geometry{
@@ -37,7 +38,7 @@ anchorcolor=Navy
 
 % 把目录区中英文的“Contents”改为中文的“目录”。
 \addto\captionsenglish{
-	\renewcommand{\contentsname}{目录}
+  \renewcommand{\contentsname}{目录}
 }
 
 % 把章节名称part、chapter换成中文
@@ -47,7 +48,7 @@ anchorcolor=Navy
 %\titleformat{\section}{\raggedright\Large\bfseries}{\,\thesection\,}{1em}{}
 
 \includeonly{
-	part1,
+  part1,
 }
 
 % 定义指定字体名称与大小的文字输出命令
@@ -55,17 +56,25 @@ anchorcolor=Navy
 % 第2个参数：字体大小
 % 第3个参数：文本内容
 \newcommand{\SetFont}[3]{
-	\setCJKfamilyfont{font1}{#1} \CJKfamily{font1}\fontsize{#2}{#2}{\selectfont #3}
+  \setCJKfamilyfont{font1}{#1} \CJKfamily{font1}\fontsize{#2}{#2}{\selectfont #3}
 }
 
 % 因为书中大量使用下划线，所以这里定义更为简便的命令来实现
 \newcommand{\UL}[1][]{\underline{#1}}
 
+% 定义不显示标号的脚注命令
+\newcommand{\NoLabelFootnote}[1]{
+  \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}
+    \addtocounter{footnote}{-1}
+  \endgroup
+}
+
 
 % ------------------ 开始 -------------------
 
 \begin{document}
-	
+
 	% ------------------ 封面 -------------------
 	\begin{titlepage}
 		\pagecolor{black}
@@ -74,41 +83,41 @@ anchorcolor=Navy
 			\SetFont{FZKai-Z03S}{40}{\textcolor{Gold}{圣\quad 经}}
 		\end{center}
 	\end{titlepage}
-	
+
 	% ------------------ 前言 -------------------
 	\frontmatter% 关闭章节序号，页码使用罗马数字
 	\restoregeometry% 恢复导言区指定的页面布局。
 	\nopagecolor% 清除封面创建时设置的背景色
-	
+
 	\pagecolor{WhiteSmoke}
 	\begin{center}
 		\includegraphics[width=8.5cm]{images/基督的面上闪耀着天主的光荣.png}
-		
+
 		\SetFont{zcoolqingkehuangyouti}{11}{“基督的面上闪耀着天主的光荣”}\normalsize\heiti（格后4:6）\songti
 	\end{center}
-	
+
 	\newpage\normalsize
 	\begin{center}
 		\quad\\[10mm]
 		承蒙联合圣经公会（United Bible Societies）
-		
+
 		为这一版本圣经的出版捐赠纸张，指定在中国
-		
+
 		大陆发行，谨此致谢！
-		
+
 		请为捐赠者祈祷。\\[10mm]
-		
+
 		With grateful thanks to United Bible
-		
+
 		Societies for the paper donated in
-		
+
 		the production of this Bible.
-		
+
 		This Bible is designated for distribution within mainland China only.
-		
+
 		Please pray for the donors.
 	\end{center}
-	
+
 	\newpage
 	\begin{center}
 		\quad\\[15mm]
@@ -116,96 +125,96 @@ anchorcolor=Navy
 		\vfill
 		\large\heiti 中国天主教主教团 准\normalfont\normalsize
 	\end{center}
-	
+
 	\newpage
 	\quad\\
 	版权所有\copyright 思高圣经学会
 	\vfill
 	\begin{center}
 		\Large 圣 经\normalsize
-		
+
 		——————————————
-		
+
 		发行者：中国天主教主教团
-		
+
 		承印者：南京爱德印刷有限公司
-		
+
 		准印证号：Z(2018)00000522
 	\end{center}
-	
+
 	\newpage
 	\quad\\\\
 	\centerline{\heiti\large 前\qquad 言}\songti\normalsize
-	
+
 	\quad
-	
+
 	为了满足广大神长教友的需求，经中国天主教主教团批准，现将旧、新约合订本《圣经》印制发行。并再次感谢香港思高圣经学会的帮助。
-	
+
 	《圣经》是一部在天主圣神默示下写成的圣书，天主的话是圣教会及众信友的生命泉源，是不可缺少的精神食粮，愿神长教友在圣教会的训导下，虔诚地、认真地阅读、默想《圣经》，聆听基督的圣训，在爱主爱人的道路上不断圣化自己，为主作证。\\\\
 	\mbox{\quad}\hfill 中国天主教主教团\mbox{\qquad\quad}\\
 	\mbox{\quad}\hfill 2009年2月\mbox{\qquad\qquad}
-	
+
 	\newpage
 	\quad\\\\
 	\centerline{\heiti\large 序}\songti\normalsize
-	
+
 	\quad
-	
+
 	中文《新旧约》合订本，几经艰辛，终于出版面世了。现在谨以孝爱的心肠，与兴奋的心情，将此书献给我国的天主教会。我们由衷地感谢万善万美之源在天之父，虔恭地恳求他，降福我们的每一位神形恩友。我们明知，如果没有他们精神方面的支持与物质方面的援助，这部\UL[中]译圣经合订本、很难于今日完成。我们更恳求天父，以圣神的恩泽，充溢每位读者的心灵，为光荣他，和他的圣子，我们的救主\UL[耶稣]\UL[基督]。最后，我们以至诚的心，深望每位读者，效法天主之母，童贞圣母\UL[玛利亚]，常将天主子\UL[耶稣]\UL[基督]的奥迹，默存于心，反复思念（\uwave{路}2:19、51）。
-	
+
 	我们坦诚地说过应说的话以后，兹将有关出版这部合订本的原则与方法，向诸位读者报告如下：
-	
+
 	本学会同仁，对本学会以前的译文，作了一次彻底的修订；特别对于《旧约》部分，觉得有重新翻译的必要。这次的修订，一如以往翻译一样，仍旧依据原文，即\UL[希伯来]、\UL[阿剌美]和\UL[希腊]文，间或有时依据古译本，将艰涩的经文稍加修改，很少采用近代学者的臆测。为了促进合一运动，我们在《新约》的修订工作上，曾参考了最近基督教五个圣经公会联合印行的《圣经》希腊版本。这版本是1966年由\UL[艾朗德]（Aland）\UL[白赖克]（Black）\UL[墨则格]（Metzger）\UL[魏革伦]（Wikgren）四位极负盛名的学者所细心校勘的。不过，在选择异文方面，有时我们未能尽表赞同或采纳。然而，众所周知，在校勘方面，要想使所有学者的意见，完全趋于一致，几乎是不可能的事；同时，艰深疑难的问题，也实在可说是无法解决；但为了遵守有助于合一运动的措施，我们仍尊重而参考了他们的意见。
-	
+
 	在翻译《多俾亚传》和《友弟德传》时，我们采用了《西乃抄卷》，因而与\UL[拉丁]通行本和其他控译本，略有出入，因为这些译本，大半是根据《亚历山大抄卷》或《梵蒂冈抄卷》而译成的。
-	
+
 	《德训篇》一书，我们虽译自\UL[希腊]文，但同时也参考了最近在古\UL[开罗]的旧书库中，以及在\UL[死海]近旁的\UL[古木兰]，和1965年在\UL[玛撒达]所发现的本书\UL[希伯来]文残卷。为了更进一步了解本书\UL[希腊]译者的愿意，我们自始至终，将\UL[希腊]本，与古\UL[拉丁]译本和《叙利亚培西托》译本，加以比较和对正。至于\UL[拉丁]通行本所特有的辞句，我们仍旧全部保留，以小字体排印；我们如此作，是因为这些经文往往与\UL[希伯来]文残卷和\UL[叙利亚]译本相吻合；尤其因为在\UL[拉丁]教会内，许多世纪以来，在礼仪上采用了这些经文。至于本书的音节，全依\UL[拉丁]通行本排列。
-	
+
 	至论《圣咏集》的翻译，虽也译自\UL[希伯来]原文，但我们却作了一个新的尝试，就是放弃了过去无韵文的翻译，而试作有韵文的翻译。采取这种翻译的理由，是为了在礼仪上便于诵读。
-	
+
 	为了切合实际，我们尽量缩短了每卷的引言和注释。对于那些欲求圣经高深知识的读者，我们仍建议，请他们参考本学会以前出版的《圣经》各卷注释。对于那些工作繁重与事务缠身，而没有充分时间的读者，我们认为本书的引言、注释以及各种附录和图表，已够他们了解《圣经》的主旨。如果读者能进一步，如圣教会所期望的，以祈祷和默祷的方式阅读本书，则更受益匪浅。
-	
+
 	现在再向读者特别介绍本书后面的三种附录，这类附录在\UL[中]文《圣经》方面尚属少见。
-	
+
 	一、“历代大司祭一览表”：读者可从这表内，正确地明晰一切有关宗教事务的事实，发生于何时何代，发生在哪一位大司祭的任期中。
-	
+
 	二、“圣经与世界大事年表”：在这表内，我们以编年体，将选民的历史，以及与选民有关的其他民族的历史，和我们\UL[中华]民族的历史，加以比较，列表阐明。我们认为这一附录，可使我国同胞，更方便而有效地传诵救恩史。
-	
+
 	三、“圣经教义索引”：这是为了符合\UL[梵蒂冈]第二届大公会议的期望，而特别编制的，目的是使信友迅速而无误地，直接从圣经中吸取天主启示的各端要理，走上愈显天父的光荣，生活于基督内的康庄大道。我们希望藉此索引，得到抛砖引玉的效果，就是说，希望每位读者藉此索引，能将救恩史的大纲，加以质的扩充和量的增补。
-	
+
 	至于地理图表，以及其他有关圣经的插图，都是参照专家和学者们最新的探讨与研究的心得，而予以重新编制的。本书的题字“圣经”、“旧约”、“新约”、六字，是临自《大秦景教流行中国碑》。
-	
+
 	最后，我们愿用一首庄严而又古雅的赞颂辞，向我全国教胞表达我们的心愿，并结束这篇序文：愿光荣藉着天主圣子，在天主圣神内，并在圣教会内，永远归于天主圣父！\\
-	
+
 	\mbox{\quad}\hfill 思高圣经学会谨识于香港\\
 	\mbox{\quad}\hfill 1968年8月15日\mbox{\quad}\\
 	\mbox{\quad}\hfill 圣母升天瞻礼\mbox{\qquad}
-	
+
 	\newpage
 	\quad
-	
+
 	\centerline{\large\textbf{凡\qquad 例}}\normalsize
-	
+
 	（一）本书中人名地名，除教会与普通常用者外，大抵依原文音译。
-	
+
 	（二）本书引言、注释引用的经文，概以本书译文为根据。
-	
+
 	（三）凡后人所加，或由他处窜入的经文，概置于方括弧内。
-	
+
 	（四）*号表示原文无，只见于\UL[拉丁]通行本。
-	
+
 	（五）《新约》经文引用《旧约》经文，概括以‘ ’引号。
-	
+
 	（六）引言、注释内，如引用原书经文，则不标书名，只标章节。
-	
+
 	（七）引言、注释内，注明出处时，章数、节数按如下表示：如\uwave{依}3:6，即《依撒意亚》第3章第6节；如一书没有章数，则节数按以下标出：如\uwave{北}8,即《亚北底亚》8节。
-	
+
 	% ------------------ 目录 -------------------
 	\tableofcontents% 生成目录
-	
+
 	% ------------------ 正文 -------------------
 	\mainmatter%
-	
+
 	\include{part1}
-	
+
 \end{document}
