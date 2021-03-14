@@ -16,9 +16,8 @@ anchorcolor=Navy
 \usepackage{tcolorbox}% 支持更好的文本框
 \usepackage[english]{babel}% 载入美式英语断字模板
 \usepackage{ulem}% 用于支持在字体上做下划线、波浪线等记号
-\usepackage{lipsum}
 
-% 设置为A4纸，边距适中模式（参考永中office）
+% 设置为kindle 6英寸电子阅读器尺寸
 \geometry{
 	paperwidth = 9cm,
 	paperheight = 12.2cm,
@@ -49,6 +48,7 @@ anchorcolor=Navy
 
 \includeonly{
   part1,
+  part6,
 }
 
 % 定义指定字体名称与大小的文字输出命令
@@ -216,5 +216,7 @@ anchorcolor=Navy
 	\mainmatter%
 
 	\include{part1}
+
+  \include{part6}
 
 \end{document}
