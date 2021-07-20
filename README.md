@@ -4,6 +4,7 @@
 本书版权归思高圣经学会所有。
 
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
 The Catholic Bible in Chinese for the Kindle 6-inch e-reader.
 
 This book is copyrighted by the Sko Bible Society.
